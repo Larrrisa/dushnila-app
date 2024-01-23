@@ -39,6 +39,17 @@ body {
   padding: 6.28rem 6rem 6.662rem 6rem;
   grid-column: 1/3;
   grid-row: 1/2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-status_bad {
+  background-color: #ff8a7a;
+  border-radius: 2rem;
+  padding: 6.28rem 6rem 6.662rem 6rem;
+  grid-column: 1/3;
+  grid-row: 1/2;
 }
 
 .sidebar-status__header {
@@ -49,6 +60,7 @@ body {
 
 .sidebar-status__text {
   font-size: 3.4rem;
+  font-weight: 400;
 }
 
 .sidebar-days {
@@ -84,6 +96,12 @@ body {
   justify-content: flex-start;
 }
 
+button:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border: solid 1px #ffffff;
+}
+
 .arrow {
   width: 28px;
   height: 28px;
@@ -114,13 +132,17 @@ body {
 .sidebar-info {
   border-radius: 2rem;
   border: #000000 1px solid;
-  background: linear-gradient(to bottom right, #ffffff 0%, #00ff57 60%);
+  background: linear-gradient(to bottom right, #ffffff 20%, #00ff57 80%);
   padding-left: 10rem;
-  padding-top: 7rem;
+  padding-top: 6.28rem;
+  padding-bottom: 39.6rem;
   grid-column: 3/4;
   grid-row: 1/3;
   width: 108.8rem;
   height: 92rem;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
 }
 
 .sidebar-info__data {
@@ -137,4 +159,9 @@ body {
 
 .sidebar-info__temp {
   margin-bottom: 6.8rem;
+  height: 19.3rem;
+}
+
+.sidebar-info__co2 {
+  height: 19.3rem;
 }
