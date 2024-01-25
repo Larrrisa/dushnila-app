@@ -3,36 +3,30 @@ import axios from "axios";
 
 export const dataSlice = createSlice({
   name: "data",
-  initialState: { data: {} },
+  initialState: { data: {}, status: "", message: "" },
   reducers: {
     setData: (state, action) => {
-      console.log(state, action);
       state.data = action.payload;
+      if (state.data.temp <= 27 || state.data.co2 <= 800) {
+        state.status = "good";
+        state.message = "Душнила доволен вами";
+      } else {
+        state.status = "bad";
+        state.message = "Душнила не доволен вами";
+      }
     },
   },
 });
 
-export const { setData } = dataSlice.actions;
+export const { setData, setStatus, setMessage } = dataSlice.actions;
 
 export const getData = () => (dispatch) => {
   axios
     .get("http://dushnila.gooddelo.com/data")
     .then((response) => {
       dispatch(setData(response.data));
-      console.log(response.data);
     })
     .catch((error) => console.log(error));
 };
 
 export default dataSlice.reducer;
-
-// export async function getData(dispatch) {
-//   try {
-//     const link = "http://dushnila.gooddelo.com/data";
-//     const result = await fetch(link);
-//     const data = await result.json();
-//     dispatch(setData(data));
-//   } catch {
-//     console.log("ERROR");
-//   }
-// }
